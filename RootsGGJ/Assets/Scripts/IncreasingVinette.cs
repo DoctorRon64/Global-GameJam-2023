@@ -9,6 +9,7 @@ public class IncreasingVinette : MonoBehaviour
     private Transform player;
     public PostProcessVolume volume;
     public GameObject target;
+    public float Smoothness;
 
     void Awake()
     {
@@ -27,7 +28,7 @@ public class IncreasingVinette : MonoBehaviour
         var volume = target.GetComponent<PostProcessVolume>();
         if (volume.profile.TryGetSettings<Vignette>(out var Vignette))
         {
-            Vignette.intensity.value = 2f;
+            Vignette.intensity.value = Smoothness * Time.time;
         }
     }
 }
