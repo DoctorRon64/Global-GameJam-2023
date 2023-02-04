@@ -20,9 +20,9 @@ public class Brain : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<RootController>() != null && !activated)
+        if (other.GetComponent<RootController2>() != null && !activated)
         {
-            other.GetComponent<RootController>().Turnaround();
+            other.GetComponent<RootController2>().Turnaround();
             activated = true;
         }
     }

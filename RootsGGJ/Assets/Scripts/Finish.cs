@@ -19,7 +19,7 @@ public class Finish : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<RootController>() != null)
+        if (other.GetComponent<RootController2>() != null)
         {
             SceneManager.LoadScene("EndingScreen");
         }
