@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class RootDeath : MonoBehaviour
 {
     public GameObject playerRoot;
     public float respawnTime = 2;
-
-    TrailRenderer trail;
+    public bool IsInvulnarable = false;
 
     Vector3 spawnPoint;
+
+    TrailRenderer trail;
     RootController2 movement;
     RootDeath death;
     RootBranching branching;
@@ -38,15 +40,16 @@ public class RootDeath : MonoBehaviour
 
     public void Die()
     {
-        Instantiate(playerRoot, spawnPoint, Quaternion.identity);
-        gameObject.tag = "Untagged";
-        for (int i = 0; i < EnemyScript.Length; i++)
+        if (!IsInvulnarable)
         {
-            EnemyScript[i].OnPlayerDead();
-            EnemyScript[i].OnPlayerDead();
-            EnemyScript[i].OnPlayerDead();
+            Instantiate(playerRoot, spawnPoint, Quaternion.identity);
+            gameObject.tag = "Untagged";
+            for (int i = 0; i < EnemyScript.Length; i++)
+            {
+                EnemyScript[i].OnPlayerDead();
+            }
+            WitherRoot();
         }
-        WitherRoot();
     }
 
     void WitherRoot()

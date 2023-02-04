@@ -67,15 +67,24 @@ public class RootController2 : MonoBehaviour
         transform.Translate(Vector3.right * movement * steeringSpeed * Time.deltaTime);
     }
 
-    public void SpeedBoost(int value)
+    public void SpeedBoost(int _Value)
     {
-        boostMultiplier = value;
+        boostMultiplier = _Value;
         StartCoroutine(ResetAbilities());
     }
 
+    public void HealthBoost(int _Value)
+    {
+        if (_Value == 1) { GetComponent<RootDeath>().IsInvulnarable = true; } 
+        else { GetComponent<RootDeath>().IsInvulnarable = false; } 
+       
+        StartCoroutine(ResetAbilities());
+    }
+    
     IEnumerator ResetAbilities()
     {
         yield return new WaitForSeconds(2);
         boostMultiplier = boostAbility;
+        GetComponent<RootDeath>().IsInvulnarable = false;
     }
 }
