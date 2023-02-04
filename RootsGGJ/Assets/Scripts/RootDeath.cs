@@ -10,18 +10,20 @@ public class RootDeath : MonoBehaviour
     TrailRenderer trail;
 
     Vector3 spawnPoint;
-    RootController movement;
+    RootController2 movement;
     RootDeath death;
     RootBranching branching;
-    CameraFollow cameraFollow;
+    CameraFollow CameraFollow;
+    [SerializeField] Enemy[] EnemyScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement = GetComponent<RootController>();
+        EnemyScript = FindObjectsOfType<Enemy>();
+        CameraFollow = GetComponent<CameraFollow>();
+        movement = GetComponent<RootController2>();
         death = GetComponent<RootDeath>();
         branching = GetComponent<RootBranching>();
-        cameraFollow = GetComponent<CameraFollow>();
         trail = GetComponentInChildren<TrailRenderer>();
     }
 
@@ -37,6 +39,13 @@ public class RootDeath : MonoBehaviour
     public void Die()
     {
         Instantiate(playerRoot, spawnPoint, Quaternion.identity);
+        gameObject.tag = "Untagged";
+        for (int i = 0; i < EnemyScript.Length; i++)
+        {
+            EnemyScript[i].OnPlayerDead();
+            EnemyScript[i].OnPlayerDead();
+            EnemyScript[i].OnPlayerDead();
+        }
         WitherRoot();
     }
 
@@ -54,7 +63,7 @@ public class RootDeath : MonoBehaviour
             branch.GetComponent<TrailRenderer>().startColor = Color.gray;
             branch.GetComponent<TrailRenderer>().endColor = Color.gray;
         }
-        cameraFollow.followThisRoot = false;
+        CameraFollow.followThisRoot = false;
         death.enabled = false;
     }
 
@@ -66,7 +75,7 @@ public class RootDeath : MonoBehaviour
         trail.emitting = false;
         movement.enabled = true;
         branching.enabled = true;
-        cameraFollow.followThisRoot = true;
+        CameraFollow.followThisRoot = true;
         death.enabled = true;
     }
 

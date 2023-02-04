@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Pickup
+  - Obstacle
   layers:
   - Default
   - TransparentFX

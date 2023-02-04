@@ -13,7 +13,8 @@ public class IncreasingVinette : MonoBehaviour
     void Awake()
     {
         player = GetComponent<Transform>();
-        
+        target = GameObject.FindGameObjectWithTag("MainCamera");
+        volume = FindObjectOfType<PostProcessVolume>();
     }
 
     // Update is called once per frame

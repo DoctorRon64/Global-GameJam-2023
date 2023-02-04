@@ -18,19 +18,25 @@ public class Enemy : MonoBehaviour
     private Vector3 target;
     NavMeshAgent agent;
 
-    private void Awake()
+    private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        target = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), 0);
+        target = new Vector3(Random.Range(-30, 30), Random.Range(-20, -170), 0);
+		transform.position = new Vector3(Random.Range(-30, 30), Random.Range(-20, -170), 0);
     }
 
 	private void Update()
 	{
-		
         CheckState();
 	}
+
+	public void OnPlayerDead()
+	{
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 
 	private void CheckState()
 	{
@@ -54,7 +60,7 @@ public class Enemy : MonoBehaviour
 		cooldownTimer -= 1000 * Time.deltaTime;
 		if (cooldownTimer < 0)
 		{
-            target = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), 0);
+            target = new Vector3(Random.Range(-30, 30), Random.Range(-20, -170), 0);
             currentState = StateEnum.Patrol;
 		}
 
@@ -79,9 +85,9 @@ public class Enemy : MonoBehaviour
 	private void AttackBehaviour()
 	{
 		agent.SetDestination(Player.transform.position);
-        agent.transform.rotation = Quaternion.RotateTowards(transform.rotation, Player.transform.rotation, 360);
+		agent.transform.rotation = Quaternion.RotateTowards(transform.rotation, Player.transform.rotation, 360);
 
-        if (Vector3.Distance(transform.position, Player.transform.position) > ViewDistance*2)
+		if (Vector3.Distance(transform.position, Player.transform.position) > ViewDistance * 2)
 		{
 			currentState = StateEnum.Patrol;
 		}

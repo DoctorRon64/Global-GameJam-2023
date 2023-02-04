@@ -21,6 +21,9 @@ public class RootCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        death.Die();
+        if (other.CompareTag("Obstacle"))
+        {
+            death.Die();
+        }
     }
 }

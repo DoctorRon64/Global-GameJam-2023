@@ -8,6 +8,7 @@ public class RootController2 : MonoBehaviour
     public float boostMultiplier = 1.5f;
     public float sneakMulitplier = 0.7f;
     public float steeringSpeed = 5;
+    public float boostAbility = 1.5f;
 
     float targetPosition;
 
@@ -64,5 +65,17 @@ public class RootController2 : MonoBehaviour
     {
         float movement = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * movement * steeringSpeed * Time.deltaTime);
+    }
+
+    public void SpeedBoost(int value)
+    {
+        boostMultiplier = value;
+        StartCoroutine(ResetAbilities());
+    }
+
+    IEnumerator ResetAbilities()
+    {
+        yield return new WaitForSeconds(2);
+        boostMultiplier = boostAbility;
     }
 }
