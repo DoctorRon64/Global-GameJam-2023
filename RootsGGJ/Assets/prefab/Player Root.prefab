@@ -158,11 +158,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632794238073900789}
-  - component: {fileID: 1632794238073900794}
-  - component: {fileID: 1632794238073900791}
-  - component: {fileID: 2221312290599196043}
-  - component: {fileID: 2804594437053406117}
-  - component: {fileID: 2950952772522560615}
+  - component: {fileID: 5847804020001668226}
+  - component: {fileID: 4768458778652023939}
+  - component: {fileID: 5114262376002539065}
+  - component: {fileID: 8390277541628648305}
   - component: {fileID: 1632794238073900788}
   - component: {fileID: 3575626430877662051}
   - component: {fileID: 44047883793188761}
@@ -189,7 +188,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1632794238073900794
+--- !u!114 &5847804020001668226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,14 +197,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632794238073900795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007b6d603dcb349478e00c7413989c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 942e5ee7a7227104cbca5fd819e9e5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  boostMultiplier: 1.2
+  boostMultiplier: 1.5
   sneakMulitplier: 0.7
   steeringSpeed: 5
---- !u!114 &1632794238073900791
+--- !u!114 &4768458778652023939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,12 +213,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632794238073900795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8942d8f5a4c7be64990f32651d21323a, type: 3}
+  m_Script: {fileID: 11500000, guid: 648bf723eaf9e6645ad5d23705f398c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRoot: {fileID: 1632794238073900795}
+  playerRoot: {fileID: 0}
   respawnTime: 2
---- !u!114 &2221312290599196043
+--- !u!114 &5114262376002539065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,40 +227,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1632794238073900795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d4fb15a1b6a8d4eb6b60a11e878b63, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dee8f3de624730418a0a40104027f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8390277541628648305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632794238073900795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5079b18ac060646b676704003fe5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rootBranchPrefab: {fileID: 0}
   instantiatedTrails: []
   stopBranching: 0
---- !u!114 &2804594437053406117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632794238073900795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a739f5a276f3ec54c945f00d4979ddc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2950952772522560615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632794238073900795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1f8c920cc91f44992b790eb9e71f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followThisRoot: 1
 --- !u!95 &1632794238073900788
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -278,7 +264,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &3575626430877662051
 Rigidbody2D:
   serializedVersion: 4

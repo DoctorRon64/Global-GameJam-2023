@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootController : MonoBehaviour
+public class RootController2 : MonoBehaviour
 {
     public float moveSpeed = 5;
     public float boostMultiplier = 1.5f;
